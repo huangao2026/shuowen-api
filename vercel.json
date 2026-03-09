@@ -1,0 +1,22 @@
+{
+  "builds": [
+    {
+      "src": "full_api_router.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.11"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "full_api_router.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "full_api_router.py"
+    }
+  ]
+}
